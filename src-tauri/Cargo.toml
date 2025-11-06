@@ -2,6 +2,7 @@
 name = "cazfightstick-tauri"
 version = "1.0.0"
 edition = "2021"
+build = "build.rs"
 
 [dependencies]
 tauri = { version = "2.9.2", features = ["config-toml"] }
@@ -9,3 +10,6 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+[build-dependencies]
+tauri-build = "0.3"
