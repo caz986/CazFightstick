@@ -1,16 +1,13 @@
-# Minimal Tauri config that works across recent CLI versions
+# Minimal Tauri config accepted by the CLI
 productName = "CazFightstick"
 version = "1.0.0"
 identifier = "com.cazfightstick.app"
 
-[tauri]
-  [tauri.bundle]
-  active = true
-  targets = ["msi"]
+[build]
+# keep defaults — no custom commands
+beforeBuildCommand = ""
+beforeDevCommand = ""
 
-  [[tauri.windows]]
-  title = "CazFightstick"
-  width = 1200
-  height = 800
-  resizable = true
-  fullscreen = false
+[bundle]
+active = true
+targets = ["msi"]
