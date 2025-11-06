@@ -1,11 +1,5 @@
 {
   "$schema": "https://tauri.app/v1/schemas/tauri.schema.json",
-  "build": {
-    "beforeBuildCommand": "",
-    "beforeDevCommand": "",
-    "devPath": "../dist",
-    "distDir": "../dist"
-  },
   "package": {
     "productName": "CazFightstick",
     "version": "1.0.0"
@@ -13,18 +7,16 @@
   "tauri": {
     "bundle": {
       "active": true,
-      "identifier": "com.yourname.cazfightstick",
-      "icon": [],
-      "resources": [],
+      "identifier": "com.cazfightstick.app",
       "targets": ["msi"]
     },
     "windows": [
       {
         "title": "CazFightstick",
-        "fullscreen": false,
-        "resizable": true,
         "width": 1200,
-        "height": 800
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
       }
     ],
     "security": {
