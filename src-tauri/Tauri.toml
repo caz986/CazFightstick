@@ -1,20 +1,14 @@
-# Minimal valid Tauri v2 config for Windows MSI builds
+# Minimal Tauri config that works across recent CLI versions
 productName = "CazFightstick"
 version = "1.0.0"
 identifier = "com.cazfightstick.app"
-
-[build]
-beforeBuildCommand = ""
-beforeDevCommand = ""
-distDir = "../dist"
-devPath = "../dist"
 
 [tauri]
   [tauri.bundle]
   active = true
   targets = ["msi"]
 
-  [tauri.windows]
+  [[tauri.windows]]
   title = "CazFightstick"
   width = 1200
   height = 800
