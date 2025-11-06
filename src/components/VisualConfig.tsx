@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ButtonTab from './tabs/ButtonTab';
 import LedTab from './tabs/LedTab';
 import SystemTab from './tabs/SystemTab';
-import { invoke } from '@tauri-apps/api/tauri';
+import { invoke } from "@tauri-apps/api/core";
 import { save as fsSave } from '@tauri-apps/api/dialog';
 import { writeTextFile, readTextFile } from '@tauri-apps/api/fs';
 import { BaseDirectory } from '@tauri-apps/api/path';
