@@ -1,9 +1,9 @@
-\
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use serde_json::json;
 use tauri::Manager;
-use std::fs;
 use std::path::Path;
+use std::fs;
 
 #[tauri::command]
 fn detect_rp2040_drive() -> Result<String, String> {
