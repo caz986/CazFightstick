@@ -1,7 +1,7 @@
 # Minimal Tauri config accepted by the CLI
 productName = "CazFightstick"
 version = "1.0.0"
-identifier = "com.cazfightstick.app"
+identifier = "com.cazfightstick"
 
 [build]
 # keep defaults — no custom commands
