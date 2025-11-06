@@ -6,16 +6,17 @@
   "dev": "vite",
   "build": "vite build",
   "preview": "vite preview",
-  "tauri:build": "tauri build"
+  "tauri:build": "npx tauri build"
 },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@tauri-apps/api": "^2.0.0"
   },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.0",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.0"
-  }
+"devDependencies": {
+  "@tauri-apps/cli": "^2.0.0",
+  "typescript": "^5.0.0",
+  "vite": "^5.0.0",
+  "@vitejs/plugin-react": "^4.0.0"
+}
 }
