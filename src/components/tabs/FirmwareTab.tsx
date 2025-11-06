@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { invoke } from '@tauri-apps/api/tauri';
+import { invoke } from "@tauri-apps/api/core";
 import { open } from '@tauri-apps/api/dialog';
 import { copyFile } from '@tauri-apps/api/fs';
 import { BaseDirectory } from '@tauri-apps/api/path';
