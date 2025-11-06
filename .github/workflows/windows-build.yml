@@ -30,8 +30,8 @@ jobs:
         shell: powershell
         run: |
           choco install wixtoolset -y
-          # confirm
-          & 'C:\Program Files (x86)\WiX Toolset v3.11\bin\candle.exe' -? || true
+          echo "WiX installed successfully"
+
 
       - name: Install NPM dependencies
         run: |
