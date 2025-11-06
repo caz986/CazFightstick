@@ -32,14 +32,11 @@ jobs:
           choco install wixtoolset -y
           echo "WiX installed successfully"
 
-
-- name: Install NPM dependencies
-  run: |
-    npm install
-    npm install @tauri-apps/api --save
-    npm install tailwindcss postcss autoprefixer @tailwindcss/postcss --save-dev
-
-
+      - name: Install NPM dependencies
+        run: |
+          npm install
+          npm install @tauri-apps/api --save
+          npm install tailwindcss postcss autoprefixer @tailwindcss/postcss --save-dev
 
       - name: Build frontend
         run: npm run build
