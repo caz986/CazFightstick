@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { invoke } from '@tauri-apps/api/tauri';
+import { invoke } from "@tauri-apps/api/core";
 import { download } from '@tauri-apps/api/http';
 
 export default function FirmwareDownloadTab() {
