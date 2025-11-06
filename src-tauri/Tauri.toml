@@ -1,19 +1,22 @@
-[package]
+# Minimal valid Tauri v2 config for Windows MSI builds
 productName = "CazFightstick"
 version = "1.0.0"
-
-[tauri]
-# required unique identifier for bundling
-bundle = { active = true, identifier = "com.cazfightstick.app", targets = ["msi"] }
-
-[tauri.windows]
-title = "CazFightstick"
-width = 1200
-height = 800
-resizable = true
-fullscreen = false
+identifier = "com.cazfightstick.app"
 
 [build]
-# Use Vite output (dist) by default
 beforeBuildCommand = ""
 beforeDevCommand = ""
+distDir = "../dist"
+devPath = "../dist"
+
+[tauri]
+  [tauri.bundle]
+  active = true
+  targets = ["msi"]
+
+  [tauri.windows]
+  title = "CazFightstick"
+  width = 1200
+  height = 800
+  resizable = true
+  fullscreen = false
