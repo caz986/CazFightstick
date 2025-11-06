@@ -26,13 +26,12 @@ jobs:
           toolchain: stable
           components: clippy, rustfmt
 
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - name: Install WiX Toolset (for MSI packaging)
+        shell: powershell
+        run: |
+          choco install wixtoolset -y
+          # confirm
+          & 'C:\Program Files (x86)\WiX Toolset v3.11\bin\candle.exe' -? || true
 
       - name: Install NPM dependencies
         run: |
@@ -43,14 +42,16 @@ jobs:
       - name: Build frontend
         run: npm run build
 
-      - name: Install Tauri CLI
-        run: cargo install tauri-cli
+      - name: Build tauri app
+        run: npm run tauri:build
+        env:
+          CI: true
 
-      - name: Build Windows app
-        run: cargo tauri build
+      - name: Find produced bundles
+        run: dir /s /b src-tauri\target\release\bundle || true
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
           name: CazFightstick-Installer
-          path: src-tauri/target/release/bundle/msi/*.msi
+          path: src-tauri/target/release/bundle/**/*
