@@ -38,6 +38,8 @@ jobs:
           npm install
           npm install @tauri-apps/api --save
           npm install tailwindcss postcss autoprefixer --save-dev
+          npm install @tailwindcss/postcss --save-dev
+
 
       - name: Build frontend
         run: npm run build
