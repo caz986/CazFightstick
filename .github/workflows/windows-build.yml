@@ -36,6 +36,10 @@ jobs:
 
       - name: Install NPM dependencies
         run: npm install
+        
+      - name: Install Tauri API package
+        run: npm install @tauri-apps/api
+
 
       - name: Build frontend (Vite)
         run: npm run build
