@@ -1,0 +1,19 @@
+[package]
+productName = "CazFightstick"
+version = "1.0.0"
+
+[tauri]
+# required unique identifier for bundling
+bundle = { active = true, identifier = "com.cazfightstick.app", targets = ["msi"] }
+
+[tauri.windows]
+title = "CazFightstick"
+width = 1200
+height = 800
+resizable = true
+fullscreen = false
+
+[build]
+# Use Vite output (dist) by default
+beforeBuildCommand = ""
+beforeDevCommand = ""
