@@ -1,0 +1,55 @@
+name: Build Windows Installer
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    env:
+      RUSTFLAGS: "-C target-cpu=native"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: clippy,rustfmt
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Build frontend (Vite)
+        run: npm run build
+
+      - name: Build tauri app (Windows)
+        run: npm run tauri:build
+        env:
+          CI: true
+
+      - name: Find produced bundles
+        run: dir /s /b src-tauri\target\release\bundle || true
+
+      - name: Upload windows bundles
+        uses: actions/upload-artifact@v4
+        with:
+          name: cazfightstick-windows-bundles
+          path: src-tauri/target/release/bundle/**
