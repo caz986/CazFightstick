@@ -32,31 +32,4 @@ jobs:
           path: |
             ~/.npm
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-- name: Install NPM dependencies
-  run: |
-    npm install
-    npm install @tauri-apps/api --save
-    npm install tailwindcss postcss autoprefixer --save-dev
-
-        
-      - name: Install Tauri API package
-        run: npm install @tauri-apps/api
-
-
-      - name: Build frontend (Vite)
-        run: npm run build
-
-      - name: Build tauri app (Windows)
-        run: npm run tauri:build
-        env:
-          CI: true
-
-      - name: Find produced bundles
-        run: dir /s /b src-tauri\target\release\bundle || true
-
-      - name: Upload windows bundles
-        uses: actions/upload-artifact@v4
-        with:
-          name: cazfightstick-windows-bundles
-          path: src-tauri/target/release/bundle/**
+          key: ${{ runner.os }}-node-${{ hashFiles('**/p**
