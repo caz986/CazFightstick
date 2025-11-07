@@ -5,3 +5,4 @@ identifier = "com.cazfightstick"
 [bundle]
 active = true
 targets = ["msi"]
+icon = []
